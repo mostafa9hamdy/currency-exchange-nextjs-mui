@@ -1,0 +1,4 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo -e "\e[1;32m Successfully Committed \e[0m";

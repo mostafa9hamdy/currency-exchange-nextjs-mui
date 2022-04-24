@@ -1,0 +1,20 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo -e "\e[1;32m Starting lint \e[0m";
+yarn run lint || {
+  echo -e "\e[1;31m Lint failure ";
+  false;
+}
+
+echo -e "\e[1;32m Starting formating files \e[0m";
+yarn run format || {
+  echo -e "\e[1;31m formating failuare \e[0m";
+  false;
+}
+
+echo -e "\e[1;32m Adding files to commit \e[0m";
+git add . || {
+  echo -e "\e[1;31m git add . failure \e[0m";
+  false;
+}
