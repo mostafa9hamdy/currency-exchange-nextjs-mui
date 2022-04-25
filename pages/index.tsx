@@ -25,6 +25,8 @@ const Home: NextPage = () => {
       const data = await response.json();
       setCurrencies(data);
     };
+
+    fetchCurrencies();
   }, []);
 
   useEffect(() => {
