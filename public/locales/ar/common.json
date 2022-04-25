@@ -1,6 +1,12 @@
 {
-  "appName": "محول العملات",
+  "appName": "تحويل العملات",
   "Pages": {
     "Home": "الرئيسية"
+  },
+  "converter": {
+    "select-currency": "اختيار العملة",
+    "from": "من",
+    "to": "الي",
+    "equel": "يساوي"
   }
 }

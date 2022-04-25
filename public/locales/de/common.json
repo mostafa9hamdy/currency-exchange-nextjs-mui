@@ -1,0 +1,12 @@
+{
+  "appName": "Geldwechsel",
+  "Pages": {
+    "Home": "Startseite"
+  },
+  "converter": {
+    "select-currency": "Währung wählen",
+    "from": "Aus",
+    "to": "Zu",
+    "equel": "Gleich"
+  }
+}

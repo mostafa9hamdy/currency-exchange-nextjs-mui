@@ -2,5 +2,11 @@
   "appName": "Currency Exchange",
   "Pages": {
     "Home": "Home"
+  },
+  "converter": {
+    "select-currency": "Select Currency",
+    "from": "From",
+    "to": "To",
+    "equel": "Equel"
   }
 }

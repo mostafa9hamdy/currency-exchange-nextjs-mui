@@ -1,0 +1,12 @@
+{
+  "appName": "Cambio de divisas",
+  "Pages": {
+    "Home": "Página principal"
+  },
+  "converter": {
+    "select-currency": "Seleccione el tipo de moneda",
+    "from": "Desde",
+    "to": "Para",
+    "equel": "Equivalente"
+  }
+}

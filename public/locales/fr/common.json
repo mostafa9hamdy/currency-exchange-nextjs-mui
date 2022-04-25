@@ -1,0 +1,12 @@
+{
+  "appName": "échange de devises",
+  "Pages": {
+    "Home": "Page d'accueil"
+  },
+  "converter": {
+    "select-currency": "Sélectionnez la devise",
+    "from": "Depuis",
+    "to": "Pour",
+    "equel": "Équel"
+  }
+}
