@@ -8,8 +8,9 @@ import { Converter } from "components/Converter";
 import { useEffect, useState } from "react";
 import { SetStateAction } from "react";
 
-const Home: NextPage = ({ currencies }: any) => {
+const Home: NextPage = () => {
   const { t } = useTranslation("common");
+  const [currencies, setCurrencies] = useState({});
   const [fromCurrency, setFromCurrency] = useState("");
   const [toCurrency, setToCurrency] = useState("");
   const [fromExchange, setFromExChange] = useState(0);
@@ -17,8 +18,22 @@ const Home: NextPage = ({ currencies }: any) => {
   const [currencyValue, setCurrencyValue] = useState<
     SetStateAction<Promise<number>> | any
   >(0);
+
   useEffect(() => {
-    if (toCurrency !== "" && toCurrency.length > 2) {
+    const fetchCurrencies = async () => {
+      const response = await fetch(`http://localhost:3000/api/currencies`);
+      const data = await response.json();
+      setCurrencies(data);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (
+      toCurrency !== "" &&
+      toCurrency.length > 2 &&
+      fromCurrency !== "" &&
+      fromCurrency.length > 2
+    ) {
       const fetchData = async () => {
         const response = await fetch(`http://localhost:3000/api`, {
           method: "POST",
@@ -39,7 +54,7 @@ const Home: NextPage = ({ currencies }: any) => {
       setCurrencyValue(fetchData());
       console.log("use", typeof fetchData());
     }
-  }, [toCurrency]);
+  }, [toCurrency, fromCurrency]);
 
   return (
     <Layout>
@@ -67,11 +82,8 @@ const Home: NextPage = ({ currencies }: any) => {
 };
 
 export async function getStaticProps({ locale }: { locale: string }) {
-  const response = await fetch(`http://localhost:3000/api/currencies`);
-  const currencies = await response.json();
   return {
     props: {
-      currencies,
       ...(await serverSideTranslations(locale, ["common"])),
       // Will be passed to the page component as props
     },
