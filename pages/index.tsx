@@ -21,7 +21,7 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     const fetchCurrencies = async () => {
-      const response = await fetch(`http://localhost:3000/api/currencies`);
+      const response = await fetch(`/api/currencies`);
       const data = await response.json();
       setCurrencies(data);
     };
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       fromCurrency.length > 2
     ) {
       const fetchData = async () => {
-        const response = await fetch(`http://localhost:3000/api`, {
+        const response = await fetch(`/api`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
